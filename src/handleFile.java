@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class handleFile {
 
-    static ArrayList<String> list = new ArrayList<>();
+    static ArrayList<Word> words = new ArrayList<>();
 
     public static void importData(String url) throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(url);
@@ -15,7 +15,8 @@ public class handleFile {
         try {
             while (scanner.hasNextLine()) {
                 String temp = scanner.nextLine();
-                list.add(temp);
+                Word wordTemp = new Word(temp);
+                words.add(wordTemp);
             }
         } finally {
             try {
