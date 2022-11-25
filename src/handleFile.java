@@ -27,4 +27,14 @@ public class handleFile {
             }
         }
     }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        importData("resources/slang.txt");
+        for (Word word: words){
+            word.display();
+        }
+    }
+
+
+
 }
