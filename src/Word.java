@@ -24,4 +24,12 @@ public class Word {
         System.out.println("Meaning: " + meaning);
     }
 
+    public String getKey(){
+        return this.key;
+    }
+
+    public ArrayList<String> getMeanings(){
+        return this.meaning;
+    }
+
 }
