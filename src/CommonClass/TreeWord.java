@@ -1,3 +1,5 @@
+package CommonClass;
+
 import java.util.ArrayList;
 
 public class TreeWord {

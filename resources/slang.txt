@@ -432,7 +432,7 @@ AMW`America's Most Wanted (TV show)
 AMZ`Amazing
 ANC`African National Congress
 ANF`Abercrombie & Fitch
-ANFAWFOS`And Now For A Word From Our Sponsor
+ANFAWFOS`And Now For A CommonClass.Word From Our Sponsor
 ANFSCD`And Now For Something Completely Different
 ANIME`Japanese style animation
 ANO`Anorexic
@@ -4346,7 +4346,7 @@ MTLBWY`May The Lord Be With You
 MTO`Media Take Out
 MTUK`More Than You Know
 MTV`Music Television
-MTW`Mum's the Word
+MTW`Mum's the CommonClass.Word
 MTYK`More Than You Know
 MU`Multi User
 MUA`Make-Up Alley
@@ -4704,7 +4704,7 @@ NRI`Non-Resident Indian| Non-Repairable Item
 NRL`National Rugby League
 NRN`No Reply Necessary
 NSA`No Strings Attached
-NSAW`Not Saying A Word
+NSAW`Not Saying A CommonClass.Word
 NSD`Never Say Die
 NSF`Not Sufficient Funds| Not So Fast
 NSFA`Not Safe For Anyone
@@ -4834,7 +4834,7 @@ ODL`Oh Dear Lord
 ODST`Orbital Drop Shock Trooper
 ODT`On Dis Ting
 OE`Outlook Express| Operator Error
-OED`Oxford English Dictionary
+OED`Oxford English ForntEnd.Dictionary
 OEM`Original Equipment Manufacurer
 OFAY`Offensive term for a white person
 OFC`Of Course
@@ -4935,7 +4935,7 @@ OOML`Out Of My League
 OOMM`Out Of My Mind
 OOO`Out Of Office
 OOP`Out Of Place
-OOPS`Word said after doing something wrong
+OOPS`CommonClass.Word said after doing something wrong
 OOS`Out Of Style
 OOSOOM`Out Of Sight, Out Of Mind
 OOT`Out Of Town
@@ -5723,7 +5723,7 @@ SAF`Single Asian Female
 SAFE`Something or someone good
 SAFM`Stay Away From Me
 SAG`Wear trousers low around the waist
-SAGE`Word added to a post to stop it getting bumped
+SAGE`CommonClass.Word added to a post to stop it getting bumped
 SAHD`Stay At Home Dad
 SAHM`Stay At Home Mom
 SAHN`Son
@@ -7238,9 +7238,9 @@ WOS`Waste Of Space| Wife Over Shoulder
 WOT`What
 WOTAM`Waste of Time and Money
 WOTCHER`What are you up to? WU?
-WOTD`Word Of The Day
+WOTD`CommonClass.Word Of The Day
 WOTLK`Wrath Of The Lich King
-WOTS`Word On The Street
+WOTS`CommonClass.Word On The Street
 WOWZER`Exaggerated Wow
 WOZ`Was
 WP`Wrong Person| Well Played
@@ -7657,6 +7657,6 @@ ZZZ`Sleepy| bored| tired
 ^~^`Mischievous Smile
 |O|`LOL
 }:-)`Devilish smile
-~`Denotes Sarcasm| Put At The End Of A Word To Make It Longer
+~`Denotes Sarcasm| Put At The End Of A CommonClass.Word To Make It Longer
 Æ`Registered Trademark Symbol
 ô`Trademark

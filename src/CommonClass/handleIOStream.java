@@ -1,3 +1,5 @@
+package CommonClass;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,6 +32,12 @@ public  class handleIOStream {
 
     public static String inputKey(){
         System.out.print("Input key: ");
+        scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public static String input(String title){
+        System.out.print(title);
         scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
