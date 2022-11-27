@@ -1,7 +1,7 @@
 package CommonClass;
 
 public class HandleTreeWord {
-    public static TreeWord tree;
+    public static TreeWord root;
     public  void DFS(){
 
     }
