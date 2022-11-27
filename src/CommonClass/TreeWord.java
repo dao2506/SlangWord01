@@ -4,20 +4,19 @@ import java.util.ArrayList;
 
 public class TreeWord extends Node {
 
-
     public static final Character endWord = '\0';
     public TreeWord(){
         curKey = null;
-        nextNode = new ArrayList<TreeWord>();
+        nextNode = new ArrayList<Node>();
     }
 
     public TreeWord(Character key){
         curKey = key;
-        nextNode = new ArrayList<TreeWord>();
+        nextNode = new ArrayList<Node>();
     }
 
-    public void addNode(TreeWord treeWord){
-        nextNode.add(treeWord);
+    public void addNode(Node node){
+        nextNode.add(node);
     }
 
     public void addNode(Character key){
@@ -28,12 +27,9 @@ public class TreeWord extends Node {
         return curKey;
     }
 
-    public ArrayList<TreeWord> getNextNode(){
+    public ArrayList<Node> getNextNode(){
         return nextNode;
     }
 
 
-    public void addEndWord(){
-        nextNode.add(new TreeWord(endWord));
-    }
 }
