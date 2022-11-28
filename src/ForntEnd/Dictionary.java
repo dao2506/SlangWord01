@@ -11,9 +11,10 @@ import java.util.Map;
 public class Dictionary {
     ArrayList<Word> words = new ArrayList<>();
     static Map<String, ArrayList<String>> mapWords= new HashMap<String,ArrayList<String>>();
+    Trie trieWords = new Trie();
     public Dictionary(){
         try {
-            handleIOStream.importData("resources/slang.txt",mapWords);
+            handleIOStream.importData("resources/slang.txt",mapWords, trieWords);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -21,7 +22,7 @@ public class Dictionary {
 
     public Dictionary(String dataURL){
         try {
-            handleIOStream.importData(dataURL,mapWords);
+            handleIOStream.importData(dataURL,mapWords,trieWords);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

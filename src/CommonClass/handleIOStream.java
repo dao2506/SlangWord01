@@ -6,7 +6,7 @@ import java.util.*;
 public  class handleIOStream {
 
     static Scanner scanner;
-    public static void importData(String url, Map<String,ArrayList<String>> map) throws FileNotFoundException {
+    public static void importData(String url, Map<String,ArrayList<String>> map, Trie trie) throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(url);
         scanner = new Scanner(fileInputStream);
         try {
@@ -14,6 +14,7 @@ public  class handleIOStream {
                 String temp = scanner.nextLine();
                 Word wordTemp = new Word(temp);
                 map.put(wordTemp.getKey(),wordTemp.getMeanings());
+                trie.insert(wordTemp.getKey());
                 //words.add(wordTemp);
             }
         } finally {
@@ -39,6 +40,8 @@ public  class handleIOStream {
         scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
+
 
     public static void writeOnFile(String url, String content) throws FileNotFoundException {
         File file = null;

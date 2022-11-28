@@ -28,5 +28,9 @@ public class TrieNode {
     public HashMap<Character, TrieNode> getChildren(){
         return this.children;
     }
+
+    public boolean isEndOfWord() {
+        return isWord;
+    }
 }
 
