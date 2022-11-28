@@ -21,6 +21,11 @@ public class Word {
         }
     }
 
+    public Word(String keyword, ArrayList<String> newMeanings) {
+        key=keyword;
+        meaning = newMeanings;
+    }
+
     public void display(){
         System.out.println("Key: " + key);
         System.out.println("Meaning: " + meaning);
@@ -34,6 +39,9 @@ public class Word {
         return this.meaning;
     }
 
+    public void addMeaning(ArrayList<String> newMeaning){
+        meaning.addAll(newMeaning);
+    }
     public String toString(){
         String temp = key +  "`";;
         for (String meaning : this.meaning){
