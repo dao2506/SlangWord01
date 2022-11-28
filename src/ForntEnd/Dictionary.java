@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Dictionary {
     ArrayList<Word> words = new ArrayList<>();
-    static Map<String, ArrayList<String>> mapWords= new HashMap<String,ArrayList<String>>();
+    static Map<String, Integer> mapWords= new HashMap<String,Integer>();
     //Trie trieWords = new Trie();
     public Dictionary(){
         try {
@@ -31,7 +31,8 @@ public class Dictionary {
 
         if (mapWords.containsKey(key)){
             flat = true;
-            return mapWords.get(key);
+            Integer index = mapWords.get(key);
+            return words.get(index).getMeanings();
         } else {
             flat = false;
             return new ArrayList<String>(List.of(new String[]{"This is not meaning in slang words dictionary"})) ;
@@ -40,20 +41,21 @@ public class Dictionary {
     }
 
     public void updateInternalData() throws FileNotFoundException {
-        String content ="";
+        StringBuilder content = new StringBuilder();
         for (Word word: words){
-            content +=words.toString();
+            content.append(words.toString());
         }
-        handleIOStream.writeOnFile("resources/data.txt",content);
+        handleIOStream.writeOnFile("resources/data.txt", content.toString());
     }
 
 
     public void add(String keyword, ArrayList<String> newMeanings) {
         words.add(new Word(keyword, newMeanings));
-        mapWords.put(keyword, newMeanings);
+        mapWords.put(keyword, words.size());
     }
 
     public void addAnotherMeaning(String keyword, ArrayList<String> newMeanings) {
-
+        Integer index = mapWords.get(keyword);
+        words.get(index).addMeaning(newMeanings);
     }
 }

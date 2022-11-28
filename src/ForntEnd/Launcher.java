@@ -9,20 +9,9 @@ import java.util.Objects;
 public class Launcher {
     static Dictionary dictionary = new Dictionary("resources/slang.txt");
 
-    public static void clearConsole() {
-        try {
-            final String os = System.getProperty("os.name");
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (final Exception e) {
-            e.printStackTrace();
-        }
-    }
+
     private static int mainMenu(){
-        clearConsole();
+
         System.out.println("""
                 Các chức năng
                 1. Chức năng tìm kiếm theo slang word.
@@ -75,25 +64,28 @@ public class Launcher {
                 YN = handleIOStream.input("Hãy nhấn Y (Yes) nếu bạn đã nhập xong các nghĩa của từ. Nếu chưa, hãy nhấn bất kì để tiếp tục");
             } while (!Objects.equals(YN, "Y"));
             dictionary.add(keyword,newMeanings);
-            return "Thêm từ mới thành công";
-        }
-        System.out.println("Từ này đã tồn tại với các nghĩa như sau: " + dictionary.lookupMeaning(keyword,null));
-        YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục");
 
-        while (!Objects.equals(YN, "Y")); {
-            String newMeaning = handleIOStream.input("Hãy nhập nghĩa của từ");
-            newMeanings.add(newMeaning);
+        } else {
+            System.out.println("Từ này đã tồn tại với các nghĩa như sau: " + dictionary.lookupMeaning(keyword,null));
             YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục");
-        };
-        dictionary.addAnotherMeaning(keyword,newMeanings);
-        return "";
+
+            while (!Objects.equals(YN, "Y")); {
+                String newMeaning = handleIOStream.input("Hãy nhập nghĩa của từ");
+                newMeanings.add(newMeaning);
+                YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục");
+            };
+            dictionary.addAnotherMeaning(keyword,newMeanings);
+        }
+
+        return "Thêm từ mới thành công";
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        dictionary.updateInternalData();
-        int choose = mainMenu();
+        //dictionary.updateInternalData();
+        int choose = 0;
+        choose =        mainMenu();
         String result = "";
-        clearConsole();
+
         switch (choose){
             case 1:
                 result = function1();
@@ -107,7 +99,7 @@ public class Launcher {
             case 4:
                 result = function4();
                 break;
-                
+
         }
         System.out.println(result);
 
