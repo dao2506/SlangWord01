@@ -52,29 +52,31 @@ public class Launcher {
     private static String function4(){
         String keyword = handleIOStream.input("Hãy nhập từ muốn thêm:");
         boolean isFound = false;
-        ArrayList<String> meaning = dictionary.lookupMeaning(keyword, isFound);
+        dictionary.lookupMeaning(keyword, isFound);
         String YN = "";
         ArrayList<String> newMeanings = new ArrayList<>();
         if (!isFound){
-
-
             do {
-                String newMeaning = handleIOStream.input("Hãy nhập nghĩa của từ");
+                String newMeaning = handleIOStream.input("Hãy nhập nghĩa của từ: ");
                 newMeanings.add(newMeaning);
-                YN = handleIOStream.input("Hãy nhấn Y (Yes) nếu bạn đã nhập xong các nghĩa của từ. Nếu chưa, hãy nhấn bất kì để tiếp tục");
+
+                YN = handleIOStream.input("Hãy nhấn Y (Yes) nếu bạn đã nhập xong các nghĩa của từ. Nếu chưa, hãy nhấn bất kì để tiếp tục: ");
             } while (!Objects.equals(YN, "Y"));
             dictionary.add(keyword,newMeanings);
-
+            return "Thêm từ mới thành công";
         } else {
-            System.out.println("Từ này đã tồn tại với các nghĩa như sau: " + dictionary.lookupMeaning(keyword,null));
-            YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục");
+            System.out.println("""
+                    Từ đã tồn tại, vui lòng đưa ra lựa chọn:
+                    1. Ghi đè
+                    2. Nhân bản""");
+            Integer choose = Integer.parseInt(handleIOStream.input("Hãy chọn chức năng bạn muốn:"));
 
-            while (!Objects.equals(YN, "Y")); {
-                String newMeaning = handleIOStream.input("Hãy nhập nghĩa của từ");
-                newMeanings.add(newMeaning);
-                YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục");
-            };
-            dictionary.addAnotherMeaning(keyword,newMeanings);
+
+
+
+
+            fyuulo;
+
         }
 
         return "Thêm từ mới thành công";
@@ -84,28 +86,40 @@ public class Launcher {
         //dictionary.updateInternalData();
         int choose = 0;
         choose =        mainMenu();
-        String result = "";
+        String result = switch (choose) {
+            case 1 -> function1();
+            case 2 -> function2();
+            case 3 -> function3();
+            case 4 -> function4();
+            case 5 -> function5();
+            default -> "";
+        };
 
-        switch (choose){
-            case 1:
-                result = function1();
-                break;
-            case 2:
-                result = function2();
-                break;
-            case 3:
-                result =function3();
-                break;
-            case 4:
-                result = function4();
-                break;
-
-        }
         System.out.println(result);
 
 
     }
 
+    private static String function5() {
+        String keyword = handleIOStream.input("Hãy nhập từ muốn chỉnh sửa:");
+        boolean isFound = false;
+        dictionary.lookupMeaning(keyword, isFound);
+        String YN = "";
+        ArrayList<String> newMeanings = new ArrayList<>();
+        if (!isFound){
+            return "Không tồn tại từ này trong từ điển. Vui lòng xem lại";
+        }
+        System.out.println("Từ này đã tồn tại với các nghĩa như sau: " + dictionary.lookupMeaning(keyword,null));
+        YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục: ");
+
+        while (!Objects.equals(YN, "Y")) {
+            String newMeaning = handleIOStream.input("Hãy nhập nghĩa của từ");
+            newMeanings.add(newMeaning);
+            YN = handleIOStream.input("Bạn muốn nhập thêm nghĩa mới của từ.Nhấn Y (Yes) để đồng ý. Nếu không, hãy nhấn bất kì để tiếp tục");
+        };
+        dictionary.addAnotherMeaning(keyword,newMeanings);
+        return "Đã chỉnh sửa thành công";
+    }
 
 
 }
