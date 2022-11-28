@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Dictionary {
-    static ArrayList<Word> words = new ArrayList<>();
+    ArrayList<Word> words = new ArrayList<>();
     static Map<String, ArrayList<String>> mapWords= new HashMap<String,ArrayList<String>>();
     public Dictionary(){
         try {
@@ -35,5 +35,12 @@ public class Dictionary {
         }
 
     }
+
+    public void updateInternalData() throws FileNotFoundException {
+        String content ="";
+
+        handleIOStream.writeOnFile("data.txt",content);
+    }
+
 
 }
