@@ -34,4 +34,12 @@ public class Word {
         return this.meaning;
     }
 
+    public String toString(){
+        String temp = key +  "`";;
+        for (String meaning : this.meaning){
+            temp= meaning + "|";
+        }
+        return temp;
+    }
+
 }
