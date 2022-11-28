@@ -1,8 +1,6 @@
 package CommonClass;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public  class handleIOStream {
@@ -40,5 +38,34 @@ public  class handleIOStream {
         System.out.print(title);
         scanner = new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+    public static void writeOnFile(String url, String content) throws FileNotFoundException {
+        File file = null;
+        FileOutputStream fileOutputStream = null;
+        try {
+            file = new File(url);
+            fileOutputStream = new FileOutputStream(file);
+            //create file if not exists
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            //fetch bytes from data
+            byte[] bs = content.getBytes();
+            fileOutputStream.write(bs);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+            System.out.println("File written successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }
