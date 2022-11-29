@@ -43,11 +43,11 @@ public class Word {
         meaning.addAll(newMeaning);
     }
     public String toString(){
-        String temp = key +  "`";;
+        StringBuilder temp = new StringBuilder(key + "`");
         for (String meaning : this.meaning){
-            temp= meaning + "|";
+            temp.append(meaning).append("|");
         }
-        return temp;
+        return temp.toString();
     }
 
     public void setMeaning(ArrayList<String> newMeanings) {

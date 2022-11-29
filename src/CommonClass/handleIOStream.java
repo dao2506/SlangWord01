@@ -49,18 +49,18 @@ public  class handleIOStream {
         }
     }
 
-    public static void importData(String URL, Trie trieWords, HashMap<String, ArrayList<String>> map) throws FileNotFoundException {
+    public static void importData(String URL, Trie trieWords, HashMap<String, ArrayList<String>> map, ArrayList<Word> words) throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(URL);
         scanner = new Scanner(fileInputStream);
-        int index = -1;
+        //int index = -1;
         try {
             while (scanner.hasNextLine()) {
                 String temp = scanner.nextLine();
                 Word wordTemp = new Word(temp);
-                index ++;
+                //index ++;
                 map.put(wordTemp.getKey(),wordTemp.getMeanings());
                 trieWords.insert(wordTemp.getKey());
-                //words.add(wordTemp);
+                words.add(wordTemp);
             }
         } finally {
             try {

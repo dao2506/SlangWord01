@@ -1,21 +1,19 @@
 package ForntEnd;
 
 import CommonClass.*;
-import org.testng.annotations.Test;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Random;
 
 public class Dictionary {
-    //ArrayList<Word> words = new ArrayList<>(100000);
+    ArrayList<Word> words = new ArrayList<>(100000);
     HashMap<String, ArrayList<String>> mapWords= new HashMap<String, ArrayList<String>>();
     Trie trieWords = new Trie();
     public Dictionary(){
         try {
-            handleIOStream.importData("resources/slang.txt",trieWords, mapWords);
+            handleIOStream.importData("resources/slang.txt",trieWords, mapWords, words);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -23,7 +21,7 @@ public class Dictionary {
 
     public Dictionary(String dataURL){
         try {
-            handleIOStream.importData(dataURL,trieWords,mapWords);
+            handleIOStream.importData(dataURL,trieWords,mapWords, words);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -56,7 +54,14 @@ public class Dictionary {
     }
 
 
+
     public void resetData() throws Exception {
-        handleIOStream.importData("resources/slang.txt",trieWords, mapWords);
+        handleIOStream.importData("resources/slang.txt",trieWords, mapWords, words);
+    }
+
+    public String randomSlangWord() {
+        Random generator = new Random();
+        int index = generator.nextInt(words.size() - 1 ) + 1;
+        return words.get(index).toString();
     }
 }

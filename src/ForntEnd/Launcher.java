@@ -113,17 +113,16 @@ public class Launcher {
 
     private String function10() {
         //TODO
-        return "";
+        return message_ThisFunctionNotBuildYet;
     }
 
-    private String function9() {
-        //TODO
-        return "";
+    private String function9() {//Chức năng đố vui, chương trình hiển thị 1 random slang word, với 4 đáp án cho người dùng chọn.
+
+        return message_ThisFunctionNotBuildYet;
     }
 
-    private String function8() {
-        //TODO
-        return "";
+    private String function8() {//Chức năng random 1 slang word (On this day slang word).
+        return dictionary.randomSlangWord();
     }
 
     private String function7() throws Exception {//Chức năng reset danh sách slang words gốc.
