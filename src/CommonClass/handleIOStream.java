@@ -1,14 +1,12 @@
 package CommonClass;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 public  class handleIOStream {
 
     static Scanner scanner;
-    public static void importData(String url, Map<String,ArrayList<String>> map) throws FileNotFoundException {
+    public static void importData(String url, Map<String,ArrayList<String>> map, Trie trie) throws FileNotFoundException {
         FileInputStream fileInputStream = new FileInputStream(url);
         scanner = new Scanner(fileInputStream);
         try {
@@ -16,6 +14,7 @@ public  class handleIOStream {
                 String temp = scanner.nextLine();
                 Word wordTemp = new Word(temp);
                 map.put(wordTemp.getKey(),wordTemp.getMeanings());
+                trie.insert(wordTemp.getKey());
                 //words.add(wordTemp);
             }
         } finally {
@@ -40,5 +39,36 @@ public  class handleIOStream {
         System.out.print(title);
         scanner = new Scanner(System.in);
         return scanner.nextLine();
+    }
+
+
+
+    public static void writeOnFile(String url, String content) throws FileNotFoundException {
+        File file = null;
+        FileOutputStream fileOutputStream = null;
+        try {
+            file = new File(url);
+            fileOutputStream = new FileOutputStream(file);
+            //create file if not exists
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            //fetch bytes from data
+            byte[] bs = content.getBytes();
+            fileOutputStream.write(bs);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+            System.out.println("File written successfully.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
     }
 }
