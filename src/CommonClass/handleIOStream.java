@@ -5,30 +5,6 @@ import java.util.*;
 
 public  class handleIOStream {
     static Scanner scanner;
-    public static void importData(String url, Map<String,Integer> map, ArrayList<Word> words) throws FileNotFoundException {
-        FileInputStream fileInputStream = new FileInputStream(url);
-        scanner = new Scanner(fileInputStream);
-        int index = -1;
-        try {
-            while (scanner.hasNextLine()) {
-                String temp = scanner.nextLine();
-                Word wordTemp = new Word(temp);
-                index ++;
-                map.put(wordTemp.getKey(),index);
-                //trie.insert(wordTemp.getKey());
-                 words.add(wordTemp);
-            }
-        } finally {
-            try {
-                scanner.close();
-                fileInputStream.close();
-                map.remove("Slag");
-                System.out.println("Import successfully");
-            } catch (IOException ex) {
-                System.out.print("Can't find file");;
-            }
-        }
-    }
 
     public static String inputKey(){
         System.out.print("Input key: ");
@@ -69,6 +45,31 @@ public  class handleIOStream {
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
+            }
+        }
+    }
+
+    public static void importData(String URL, Trie trieWords, HashMap<String, ArrayList<String>> map) throws FileNotFoundException {
+        FileInputStream fileInputStream = new FileInputStream(URL);
+        scanner = new Scanner(fileInputStream);
+        int index = -1;
+        try {
+            while (scanner.hasNextLine()) {
+                String temp = scanner.nextLine();
+                Word wordTemp = new Word(temp);
+                index ++;
+                map.put(wordTemp.getKey(),wordTemp.getMeanings());
+                trieWords.insert(wordTemp.getKey());
+                //words.add(wordTemp);
+            }
+        } finally {
+            try {
+                scanner.close();
+                fileInputStream.close();
+                //map.remove("Slag");
+                System.out.println("Import successfully");
+            } catch (IOException ex) {
+                System.out.print("Can't find file");;
             }
         }
     }

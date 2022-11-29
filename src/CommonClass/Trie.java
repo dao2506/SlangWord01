@@ -10,10 +10,6 @@ public class Trie {
         root = new TrieNode();
     }
 
-    public Trie(Character rootKey){
-        root = new TrieNode(rootKey);
-    }
-
     public Trie(TrieNode rootNode){
         root = rootNode;
     }

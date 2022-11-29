@@ -4,6 +4,7 @@ import CommonClass.handleIOStream;
 
 public class MESSAGE {
     public static String message_NotFound = "Không tồn tại từ này trong từ điển. Vui lòng xem lại!";
+    public static String message_AlreadyExist = "Từ này trong từ điển. Vui lòng xem lại!";
     public static final String message_ThisFunctionNotBuildYet = "Chức năng này hiện chưa được cập nhập, xin vui lòng quay lại sau! Xin cảm ơn!";
     public static final String message_Confirm = "Hãy nhập Y nếu bạn đã nhập xong các nghĩa của từ. Nếu chưa, hãy nhấn Enter để tiếp tục: ";
     public static final String mainMenu = """
@@ -18,6 +19,7 @@ public class MESSAGE {
                 7. Chức năng reset danh sách slang words gốc.
                 8. Chức năng random 1 slang word (On this day slang word).
                 9. Chức năng đố vui, chương trình hiển thị 1 random slang word, với 4 đáp án cho người dùng chọn.
-                10. Chức năng đố vui, chương trình hiển thị 1 definition, với 4 slang words đáp án cho người dùng chọn.""";
+                10. Chức năng đố vui, chương trình hiển thị 1 definition, với 4 slang words đáp án cho người dùng chọn.
+                0. Dừng thao tác, kết thúc chương trình.""";
 
 }
