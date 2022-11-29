@@ -50,4 +50,9 @@ public class Word {
         return temp;
     }
 
+    public void setMeaning(ArrayList<String> newMeanings) {
+        meaning = newMeanings;
+    }
+
+
 }

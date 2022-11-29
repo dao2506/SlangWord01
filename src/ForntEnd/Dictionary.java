@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Dictionary {
-    ArrayList<Word> words = new ArrayList<>();
-    static Map<String, Integer> mapWords= new HashMap<String,Integer>();
+    ArrayList<Word> words = new ArrayList<>(100000);
+    static Map<String, Integer> mapWords= new HashMap<String,Integer>(100000);
     //Trie trieWords = new Trie();
     public Dictionary(){
         try {
@@ -57,5 +57,18 @@ public class Dictionary {
     public void addAnotherMeaning(String keyword, ArrayList<String> newMeanings) {
         Integer index = mapWords.get(keyword);
         words.get(index).addMeaning(newMeanings);
+    }
+
+    public void overWriteNewMeanings(String keyword, ArrayList<String> newMeanings) {
+        Integer index = mapWords.get(keyword);
+        words.get(index).setMeaning(newMeanings);
+
+    }
+
+
+    public void delete(String keyword) {
+        Integer index = mapWords.get(keyword);
+        mapWords.remove(keyword);
+        words.remove(index);
     }
 }
